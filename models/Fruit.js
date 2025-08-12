@@ -15,7 +15,6 @@ class Fruit {
   };
 
   static show = (name) => {
-    console.log("hit");
     const fruit = fruits.filter((fruit) => fruit.name.toLowerCase() == name);
     if (fruit.length === 1) {
       return new Fruit(fruit[0]);

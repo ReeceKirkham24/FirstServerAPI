@@ -1,17 +1,16 @@
-const express = require('express')
-const app = express()
+const express = require("express");
+const cors = require("cors");
+const app = express();
 
-app.use(express.json())
+const logger = require("./logger");
+const { fruitsRouter } = require("./routes/fruits");
 
-const logger = require('./logger')
+app.use(cors());
+app.use(express.json());
+app.use(logger);
 
-const { fruitsRouter } = require("./routes/fruits")
-
-app.use(logger)
-app.use("/fruits", fruitsRouter)
-
-
+app.use("/fruits", fruitsRouter);
 
 module.exports = {
-  app
-}
+  app,
+};
